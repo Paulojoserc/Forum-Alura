@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.br.alura.modelo.Curso;
+import com.br.alura.domain.curso.Curso;
 import com.br.alura.modelo.Resposta;
 import com.br.alura.modelo.Usuario;
 import com.fasterxml.jackson.annotation.JsonIgnore;
