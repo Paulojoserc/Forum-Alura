@@ -2,6 +2,8 @@ package com.br.alura.modelo;
 
 import java.time.LocalDateTime;
 
+import com.br.alura.domain.topico.Topico;
+
 public class Resposta {
 
 	private Long id;
