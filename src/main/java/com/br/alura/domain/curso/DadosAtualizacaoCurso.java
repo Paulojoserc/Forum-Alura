@@ -1,5 +1,13 @@
 package com.br.alura.domain.curso;
 
-public record DadosAtualizacaoCurso() {
+import jakarta.validation.constraints.NotNull;
 
-}
+public record DadosAtualizacaoCurso(
+
+		@NotNull Long id,
+
+		String nome,
+
+		String categoria
+
+) {}

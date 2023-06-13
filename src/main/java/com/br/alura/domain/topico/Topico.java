@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.br.alura.domain.curso.Curso;
-import com.br.alura.modelo.Resposta;
-import com.br.alura.modelo.Usuario;
+import com.br.alura.domain.resposta.Resposta;
+import com.br.alura.domain.usuario.Usuario;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -36,7 +36,8 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 public class Topico {
 
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(unique = true)
 	private String titulo;
@@ -46,22 +47,24 @@ public class Topico {
 	@Enumerated(EnumType.STRING)
 	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
 	@ManyToOne
-    @JoinColumn(name = "autor_id")
+	@JoinColumn(name = "autor_id")
 	private Usuario autor;
 	@ManyToOne
-    @JoinColumn(name = "curso_id")
+	@JoinColumn(name = "curso_id")
 	private Curso curso;
 	@JsonIgnore
 	@OneToMany(mappedBy = "topico", fetch = FetchType.LAZY)
 	private List<Resposta> respostas = new ArrayList<>();
 
 	public Topico(String titulo, String mensagem, Usuario autor, Curso curso) {
+
 		this.titulo = titulo;
 		this.mensagem = mensagem;
 		this.autor = autor;
 		this.curso = curso;
+
 	}
-	
+
 	public void atualizarInformacoes(DadosAtualizacaoTopico dados, Usuario autor, Curso curso) {
 
 		if (dados.titulo() != null) {
@@ -95,8 +98,6 @@ public class Topico {
 		}
 
 	}
-
-	
 
 	public void adicionarResposta(Resposta resposta) {
 

@@ -1,4 +1,4 @@
-package com.br.alura.modelo;
+package com.br.alura.domain.usuario;
 
 public class Usuario {
 

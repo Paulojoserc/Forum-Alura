@@ -1,5 +1,9 @@
 package com.br.alura.domain.curso;
 
-public interface CursoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CursoRepository extends JpaRepository<Curso, Long> {
+
+	Curso getReferenceByNome(String curso);
 
 }
