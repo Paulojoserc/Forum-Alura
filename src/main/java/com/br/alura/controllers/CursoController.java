@@ -38,7 +38,7 @@ public class CursoController {
 
 	public Curso getCursoComNome(String curso) {
 
-		return repository.getReferenceByNome(curso);
+		return repository.getReferenceByNome(curso); 
 
 	}
 
